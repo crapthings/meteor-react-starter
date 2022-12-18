@@ -9,8 +9,10 @@ export default function Layout () {
   return (
     <Auth>
       <Nav />
-      <Err />
-      <Outlet />
+      <div className='flex-1 p-8'>
+        <Err />
+        <Outlet />
+      </div>
     </Auth>
   )
 }

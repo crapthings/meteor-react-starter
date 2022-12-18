@@ -16,6 +16,8 @@ import UsersComp from './composites/users'
 Meteor.startup(function renderRoutes () {
   const container = document.createElement('div')
 
+  container.id = 'app'
+
   const router = createBrowserRouter(
     createRoutesFromElements(
       <>
@@ -35,5 +37,5 @@ Meteor.startup(function renderRoutes () {
     </React.StrictMode>
   )
 
-  document.body.appendChild(container)
+  document.body.prepend(container)
 })

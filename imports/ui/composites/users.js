@@ -16,19 +16,20 @@ export default function UsersComp () {
   }
 
   return (
-    <table>
+    <table className='w-full text-left table-fixed'>
       <thead>
         <tr>
-          <th>username</th>
+          <th className='p-2 border border-slate-300'>username</th>
+          <th className='p-2 border border-slate-300'></th>
         </tr>
       </thead>
 
       <tbody>
         {users.map((user) => (
           <tr key={user._id}>
-            <td>{user.username}</td>
+            <td className='p-2 border border-slate-300'>{user.username}</td>
 
-            <td>
+            <td className='p-2 border border-slate-300'>
               <button onClick={onRemoveUser(user._id)}>remove</button>
             </td>
           </tr>

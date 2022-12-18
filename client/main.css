@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  #app {
+    @apply flex min-h-screen;
+  }
+}
+
+body {
+  font-family: 'Noto Sans SC', sans-serif;
+}
