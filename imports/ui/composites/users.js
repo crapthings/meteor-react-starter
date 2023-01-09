@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { useSubscribe, useTracker } from 'meteor/react-meteor-data'
 
 import { Users } from '/imports/collections'
@@ -16,25 +16,27 @@ export default function UsersComp () {
   }
 
   return (
-    <table className='w-full text-left table-fixed'>
-      <thead>
-        <tr>
-          <th className='p-2 border border-slate-300'>username</th>
-          <th className='p-2 border border-slate-300'></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        {users.map((user) => (
-          <tr key={user._id}>
-            <td className='p-2 border border-slate-300'>{user.username}</td>
-
-            <td className='p-2 border border-slate-300'>
-              <button onClick={onRemoveUser(user._id)}>remove</button>
-            </td>
+    <Suspense fallback={<div>loading</div>}>
+      <table className='w-full text-left table-fixed'>
+        <thead>
+          <tr>
+            <th className='p-2 border border-slate-300'>username</th>
+            <th className='p-2 border border-slate-300'></th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+
+        <tbody>
+          {users.map((user) => (
+            <tr key={user._id}>
+              <td className='p-2 border border-slate-300'>{user.username}</td>
+
+              <td className='p-2 border border-slate-300'>
+                <button onClick={onRemoveUser(user._id)}>remove</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </Suspense>
   )
 }

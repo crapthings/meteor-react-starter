@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { lazy } from 'react'
 import { createRoot } from 'react-dom/client'
 import {
   createBrowserRouter,
@@ -11,7 +11,9 @@ import Layout from './components/layout'
 import LoginComp from './composites/login'
 import RegisterComp from './composites/register'
 import HomeComp from './composites/home'
-import UsersComp from './composites/users'
+
+// import UsersComp from './composites/users'
+const UsersComp = lazy(() => import('./composites/users'))
 
 Meteor.startup(function renderRoutes () {
   const container = document.createElement('div')
