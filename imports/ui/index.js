@@ -1,2 +1,2 @@
 import '/imports/methods'
-import './routes'
+import './app'
